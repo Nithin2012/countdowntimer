@@ -1,0 +1,44 @@
+<html>
+<head>
+</head>
+<canvas id="time" width="300" height="200"style="border:1px solid #000000;"> </canvas> 
+<body>
+minutes<input type="text" id="minutes"> seconds<input type="text" id="seconds">
+<input type="button" value="GO" onclick="time()">
+<input type="button" value="START" onclick="start()">
+<input type="button" value="STOP" onclick="stop()">
+</body>
+<script language=javascript>
+var canvas = document.getElementById("time");
+var context = canvas.getContext("2d");
+function time()
+{
+context.font = "50px calibri";
+minutes=document.getElementById("minutes").value;
+seconds=document.getElementById("seconds").value;
+context.fillText(minutes,90,100);
+context.fillText(":",150,100);
+context.fillText(seconds,180,100);
+} 
+function start()
+{name=setInterval(clock,1000)}
+function clock(){
+context.clearRect (0,0,300,200)
+context.fillText(minutes,90,100);
+context.fillText(":",150,100);
+context.fillText(seconds,180,100);
+seconds--;
+if(seconds<0)
+{
+    minutes--;
+    seconds=60;
+
+}
+}
+function stop() 
+        {            
+            clearInterval(name)
+        }
+
+</script>
+</html>
